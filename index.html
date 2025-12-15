@@ -81,7 +81,7 @@
 <p class="text-[14px] text-gray-500">You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign and you'll be added to a special Backer member list.</p>
 <div class="flex sm:justify-between font-bold  sm:items-center max-sm:gap-1.5 max-sm:flex-col">
 <div class="flex items-center gap-0.5"><p class="text-[22px] max-sm:text-[28px]">101</p><p class="text-gray-500 text-[14px]">left</p></div>
-<p class="h-10 w-35 rounded-3xl bg-[hsl(176,50%,47%)] text-white flex justify-center items-center hover:bg-[hsl(176,45%,43%)] hover:text-[#f4f4f4] transition-all ease-in-out duration-500 cursor-pointer max-sm:w-40 max-sm:h-12.5 max-sm:text-[18px]">Select reward</p>
+<p class="h-10 w-35 rounded-3xl bg-[hsl(176,50%,47%)] text-white flex justify-center items-center hover:bg-[hsl(176,45%,43%)] hover:text-[#f4f4f4] transition-all ease-in-out duration-500 cursor-pointer max-sm:w-40 max-sm:h-12.5 max-sm:text-[18px]" id="bambooSelectReward">Select reward</p>
 </div>
 </div>
 <div class=" border border-gray-300 rounded-[10px] mx-auto flex flex-col justify-between px-3 py-7 gap-7">
@@ -137,17 +137,18 @@
 </svg>
 </div>
 <div class="flex flex-col gap-4 py-7">
-  <div class="border border-gray-300 group hover:border-[hsl(176,50%,47%)] transition-all duration-500 ease-in rounded-[10px] mx-auto justify-between px-3 py-5 gap-4 min-[943px]:w-162 cursor-pointer">
+  <div class="border border-gray-300 group hover:border-[hsl(176,50%,47%)] transition-all duration-500 ease-in rounded-[10px] mx-auto px-3 py-5 gap-4 min-[943px]:w-162 cursor-pointer flex flex-col">
 <div class="flex items-center gap-2">
-  <input type="radio" class="cursor-pointer size-4" name="radioStands"/>
+  <input type="radio" class="cursor-pointer size-4" name="radioStands" id="radioPledgeWithNoReward"/>
 <p class="text-[18px] font-bold">Pledge with no reward</p>
 </div>
 <p class="text-[14px] text-gray-500">Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email.</p>
+<p class="py-3 bg-[hsl(176,50%,47%)] rounded-3xl text-white text-center hidden" id="pledgeWithNowRewardContinue">Continue</p>
 </div>
 <div class="border border-gray-300 group hover:border-[hsl(176,50%,47%)] transition-all duration-500 ease-in rounded-[10px] mx-auto flex flex-col justify-between px-3 py-5 gap-4 min-[943px]:w-162 cursor-pointer">
   <div class="flex items-center justify-between">
   <div class="flex items-center gap-2">
-    <input type="radio" class="cursor-pointer size-4" name="radioStands" id="radioBambooStands"/>
+    <input type="radio" class="cursor-pointer size-4 pl-1" name="radioStands" id="radioBambooStands"/>
     <div class="flex items-center max-sm:items-start sm:gap-3.5 max-sm:flex-col">
 <p class="text-[18px] font-bold">Bamboo Stand</p>
 <p class="text-[14px] text-[hsl(176,50%,47%)] font-bold">Pledge $25 or More</p>
@@ -172,7 +173,7 @@
 <div class="border border-gray-300 group hover:border-[hsl(176,50%,47%)] transition-all duration-500 ease-in rounded-[10px] mx-auto flex flex-col justify-between px-3 py-5 gap-4 min-[943px]:w-162 cursor-pointer">
   <div class="flex items-center justify-between">
     <div class="flex items-center gap-2">
-    <input type="radio" class="cursor-pointer size-4" name="radioStands"/>
+    <input type="radio" class="cursor-pointer size-4" name="radioStands" id="radioBlackEditionStand"/>
   <div class="flex items-center max-sm:items-start gap-3.5 max-sm:flex-col">
 <p class="text-[18px] font-bold">Black Edition Stand</p>
 <p class="text-[14px] text-[hsl(176,50%,47%)] font-bold">Pledge $75 or More</p>
@@ -182,6 +183,16 @@
 </div>
 <p class="text-[14px] text-gray-500">You get a Black Special Edition computer stand and a personal thank you. You'll be added to our Backer member list. Shipping is included.</p>
 <div class="flex items-center gap-0.5 sm:hidden"><p class="text-[28px]">64</p><p class="text-gray-500 text-[14px]">left</p></div>
+<div class="hidden" id="footerBlackEdition">
+  <div class="h-[0.5px] w-full bg-gray-300"></div>
+<div class="flex justify-between items-center max-sm:flex-col max-sm:gap-4 sm:pt-4">
+<p class="text-[14px] text-gray-500 max-sm:mx-auto max-sm:pt-4">Enter your pledge</p>
+<div class="flex gap-2 max-sm:gap-3">
+<input type="number" min="75" class="h-10 w-24 border border-gray-300 rounded-3xl text-center focus:outline-[hsl(176,50%,47%)]" />
+<p class="h-10 w-24 flex justify-center items-center bg-[hsl(176,50%,47%)] rounded-3xl text-white">Continue</p>
+</div>
+</div>
+</div>
 </div>
 <div class=" border border-gray-300 rounded-[10px] mx-auto flex flex-col justify-between px-3 py-7 gap-7 opacity-35 min-[943px]:w-162">
 <div class="flex justify-between">
@@ -199,6 +210,15 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+
+<div class="max-sm:px-3 max-w-90 absolute top-[66%] left-1/2 -translate-x-1/2 -translate-y-1/2 hidden z-70" id="thankYouPopUp">
+  <div class="flex flex-col px-3 py-7.5 justify-center items-center bg-white rounded-[10px] gap-4">
+  <img src="images/icon-check.svg" alt="check" class="w-15 h-15">
+  <h1 class="font-semibold text-[20px]">Thank you for your support!</h1>
+  <p class="text-gray-500 text-center">Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Rise Worldwide. You will get an email once our campaign is completed.</p>
+  <p class="w-22 h-11 flex items-center justify-center text-white bg-[hsl(176,50%,47%)] rounded-3xl cursor-pointer" id="closeThankYouPopUp">Got it</p>
 </div>
 </div>
 <script src="script.js"></script>
