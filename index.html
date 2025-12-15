@@ -29,29 +29,10 @@
 <img src="images/icon-hamburger.svg" alt="Hamburger" id="menuButton" class="cursor-pointer">
 <div id="dropdownMenu" class="flex flex-col gap-3 text-[14px] font-medium p-3.5 rounded-2xl hidden backdrop-blur-sm border-gray-50 border">
 <p class="hover:text-gray-200 transition-all duration-500 ease-in-out cursor-pointer"><a href="#About">About</a></p>
-<p class="hover:text-gray-200 transition-all duration-500 ease-in-out cursor-pointer" id="discoverName">Discover</p>
+<p class="hover:text-gray-200 transition-all duration-500 ease-in-out cursor-pointer" id="discoverName1">Discover</p>
 <p class="hover:text-gray-200 transition-all duration-500 ease-in-out cursor-pointer"><a href="#getStarted">Get Started</a></p>
 </div>
 </div>
-<script>
-  const menuButton = document.getElementById("menuButton");
-  const dropdownMenu = document.getElementById("dropdownMenu");
-
-  menuButton.addEventListener("click", (e) => {
-    e.stopPropagation();
-
-    dropdownMenu.classList.toggle("hidden");
-    menuButton.classList.toggle("hidden");
-  });
-
-  window.addEventListener("click", (e) => {
-    if (!dropdownMenu.contains(e.target)) {
-      dropdownMenu.classList.add("hidden");
-      menuButton.classList.remove("hidden");
-    }
-  });
-</script>
-
 
   </div>
 <div class="flex flex-col items-center">
@@ -62,7 +43,7 @@
 <p class="text-gray-500 text-[14px]">A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
 </div>
 <div class="flex justify-center gap-2 pt-7.5">
-  <div class="rounded-4xl h-13 w-[48.5%] max-sm:w-45 max-w-50 flex justify-center items-center bg-[hsl(176,50%,47%)] text-white text-[14px] hover:bg-[hsl(176,45%,43%)] hover:text-[#f4f4f4] transition-all ease-in-out duration-500 cursor-pointer">Back this project</div>
+  <div class="rounded-4xl h-13 w-[48.5%] max-sm:w-45 max-w-50 flex justify-center items-center bg-[hsl(176,50%,47%)] text-white text-[14px] hover:bg-[hsl(176,45%,43%)] hover:text-[#f4f4f4] transition-all ease-in-out duration-500 cursor-pointer" id="backThisProjectButton">Back this project</div>
   <div class="flex items-center rounded-4xl h-13 w-[48.5%] max-w-50 max-sm:w-13  bg-[#e9e9e9] cursor-pointer group hover:bg-[#f0eeee] transition-all duration-500 ease-in-out"><img src="images/icon-bookmark.svg" alt="Bookmark" class="h-13 w-13 group-hover:opacity-90"><p class="max-sm:hidden mx-auto text-[14px] text-gray-500 group-hover:text-gray-600  font-semibold" id="Bookmark" onclick="toggle">Bookmark</p></div>
 </div>
 </div>
@@ -126,88 +107,100 @@
 </div>
 </div>
 </div>
-  <!-- Success Modal -->
-    <div class="modal-overlay success-modal" id="successModal">
-        <div class="modal">
-            <div class="success-icon">✓</div>
-            <h2>Thanks for your support!</h2>
-            <p class="modal-intro">
-                Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. 
-                You will get an email once our campaign is completed.
-            </p>
-            <button class="btn btn-primary" onclick="closeSuccessModal()">Got it!</button>
-        </div>
-    </div>
-<div class="h-[80%] w-[90%] backdrop-blur-md fixed z-50 top-[12%] left-[5%] rounded-[10px] border border-[hsla(176,39%,85%,1)] hidden" id="popUp">
+<!-- Success Modal -->
+ <div class="modal-overlay success-modal" id="successModal">
+ <div class="modal">
+ <div class="success-icon">✓</div>
+ <h2>Thanks for your support!</h2>
+ <p class="modal-intro">
+  Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. 
+  You will get an email once our campaign is completed.
+ </p>
+ <button class="btn btn-pri" onclick="closeSuccessModal()">Got it!</button>
+</div>
+</div>
+<div class="h-[80%] w-[90%] backdrop-blur-md absolute z-50 top-[40%] left-[5%] rounded-[10px] border border-[hsla(176,39%,85%,1)] hidden" id="popUp">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-6 ml-[92.5%] mt-[2.5%] text-white cursor-pointer hover:text-[#f4f4f4] transition-all duration-500 ease-in" id="closePopup">
   <path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z" />
 </svg>
 
 </div>
-<div id="backThisProject" class="py-5 px-3.5 bg-white rounded-[10px]">
-<div class="flex justify-between items-center">
-<p class="font-semibold text-[14px]">Back This Project</p>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4 text-gray-300 cursor-pointer" id="closePopup">
+<div class="px-5 min-[943px]:px-0 min-[943px]:w-[75.3%] absolute top-[40%] min-[943px]:left-[12.35%] hidden" id="backThisProject">
+<div class="pt-5 px-3.5 mask-x-to-yellow-200 bg-white rounded-[10px] ">
+<div class="flex justify-between px-4">
+<div class="flex flex-col gap-2 max-sm:gap-1">
+  <p class="font-semibold text-[14px]">Back This Project</p>
+<p class="text-[14px] text-gray-500 max-[710px]:pr-25 max-[485px]:pr-7">Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="sm:size-5 size-7 text-gray-300 cursor-pointer hover:text-gray-500 transition-all" id="closeThisProject">
   <path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z" />
 </svg>
 </div>
-<div class="flex flex-col gap-4 pt-5">
-<div class=" border border-gray-300 rounded-[10px] mx-auto flex flex-col justify-between px-3 py-5 gap-4">
-<div class="flex sm:justify-between font-bold  sm:items-center max-sm:gap-1.5 max-sm:flex-col">
-  <div class="flex items-center gap-3.5">
-<p class="text-[17px]">Bamboo Stand</p>
-<p class="text-[14px] text-[hsl(176,50%,47%)]">Pledge $25 or More</p>
+<div class="flex flex-col gap-4 py-7">
+  <div class="border border-gray-300 group hover:border-[hsl(176,50%,47%)] transition-all duration-500 ease-in rounded-[10px] mx-auto justify-between px-3 py-5 gap-4 min-[943px]:w-162 cursor-pointer">
+<div class="flex items-center gap-2">
+  <input type="radio" class="cursor-pointer size-4" name="radioStands"/>
+<p class="text-[18px] font-bold">Pledge with no reward</p>
+</div>
+<p class="text-[14px] text-gray-500">Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email.</p>
+</div>
+<div class="border border-gray-300 group hover:border-[hsl(176,50%,47%)] transition-all duration-500 ease-in rounded-[10px] mx-auto flex flex-col justify-between px-3 py-5 gap-4 min-[943px]:w-162 cursor-pointer">
+  <div class="flex items-center justify-between">
+  <div class="flex items-center gap-2">
+    <input type="radio" class="cursor-pointer size-4" name="radioStands" id="radioBambooStands"/>
+    <div class="flex items-center max-sm:items-start sm:gap-3.5 max-sm:flex-col">
+<p class="text-[18px] font-bold">Bamboo Stand</p>
+<p class="text-[14px] text-[hsl(176,50%,47%)] font-bold">Pledge $25 or More</p>
   </div>
-  <div class="flex items-center gap-0.5 max-sm:hidden"><p class="text-[22px] max-sm:text-[28px]">101</p><p class="text-gray-500 text-[14px]">left</p></div>
-</div>
+  </div>
+  <div class="flex items-center gap-0.5 max-sm:hidden"><p class="text-[28px]">101</p><p class="text-gray-500 text-[14px]">left</p></div>
+  </div>
 <p class="text-[14px] text-gray-500">You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign and you'll be added to a special Backer member list.</p>
-<div class="sm:hidden">
-<div class="flex items-center gap-0.5"><p class="text-[22px] max-sm:text-[28px]">101</p><p class="text-gray-500 text-[14px]">left</p></div>
-<p class="h-10 w-35 rounded-3xl bg-[hsl(176,50%,47%)] text-white flex justify-center items-center hover:bg-[hsl(176,45%,43%)] hover:text-[#f4f4f4] transition-all ease-in-out duration-500 cursor-pointer max-sm:w-40 max-sm:h-12.5 max-sm:text-[18px]">Select reward</p>
+<div class="flex items-center gap-0.5 sm:hidden"><p class="text-[28px]">101</p><p class="text-gray-500 text-[14px]">left</p></div>
+<div class="hidden" id="footerBamboo">
+  <div class="h-[0.5px] w-full bg-gray-300"></div>
+<div class="flex justify-between items-center max-sm:flex-col max-sm:gap-4 sm:pt-4">
+<p class="text-[14px] text-gray-500 max-sm:mx-auto max-sm:pt-4">Enter your pledge</p>
+<div class="flex gap-2 max-sm:gap-3">
+<input type="number" min="25" class="h-10 w-24 border border-gray-300 rounded-3xl text-center focus:outline-[hsl(176,50%,47%)]" />
+<p class="h-10 w-24 flex justify-center items-center bg-[hsl(176,50%,47%)] rounded-3xl text-white">Continue</p>
 </div>
 </div>
-<div class=" border border-gray-300 rounded-[10px] mx-auto flex flex-col justify-between px-3 py-7 gap-7">
-<div class="flex sm:justify-between font-bold  sm:items-center max-sm:gap-1.5 max-sm:flex-col">
-<p class="text-[18px]">Black Edition Stand</p>
-<p class="text-[14px] text-[hsl(176,50%,47%)]">Pledge $75 or More</p>
+</div>
+</div>
+
+<div class="border border-gray-300 group hover:border-[hsl(176,50%,47%)] transition-all duration-500 ease-in rounded-[10px] mx-auto flex flex-col justify-between px-3 py-5 gap-4 min-[943px]:w-162 cursor-pointer">
+  <div class="flex items-center justify-between">
+    <div class="flex items-center gap-2">
+    <input type="radio" class="cursor-pointer size-4" name="radioStands"/>
+  <div class="flex items-center max-sm:items-start gap-3.5 max-sm:flex-col">
+<p class="text-[18px] font-bold">Black Edition Stand</p>
+<p class="text-[14px] text-[hsl(176,50%,47%)] font-bold">Pledge $75 or More</p>
+  </div>
+  </div>
+  <div class="flex items-center gap-0.5 max-sm:hidden"><p class="text-[28px]">64</p><p class="text-gray-500 text-[14px]">left</p></div>
 </div>
 <p class="text-[14px] text-gray-500">You get a Black Special Edition computer stand and a personal thank you. You'll be added to our Backer member list. Shipping is included.</p>
-<div class="flex sm:justify-between font-bold  sm:items-center max-sm:gap-1.5 max-sm:flex-col">
-<div class="flex items-center gap-0.5"><p class="text-[22px] max-sm:text-[28px]">64</p><p class="text-gray-500 text-[14px]">left</p></div>
-<p class="h-10 w-35 rounded-3xl bg-[hsl(176,50%,47%)] text-white flex justify-center items-center hover:bg-[hsl(176,45%,43%)] hover:text-[#f4f4f4] transition-all ease-in-out duration-500 cursor-pointer  max-sm:w-40 max-sm:h-12.5 max-sm:text-[18px]">Select reward</p>
+<div class="flex items-center gap-0.5 sm:hidden"><p class="text-[28px]">64</p><p class="text-gray-500 text-[14px]">left</p></div>
+</div>
+<div class=" border border-gray-300 rounded-[10px] mx-auto flex flex-col justify-between px-3 py-7 gap-7 opacity-35 min-[943px]:w-162">
+<div class="flex justify-between">
+  <div class="flex items-center gap-2">
+  <input type="radio" class="cursor-pointer size-4" name="radioStands" checked disabled/>
+  <div class="flex items-center max-sm:items-start gap-3.5 max-sm:flex-col">
+<p class="text-[18px] font-bold">Mahogany Special Edition</p>
+<p class="text-[14px] text-[hsl(176,50%,47%)] font-bold">Pledge $200 or more</p>
 </div>
 </div>
-<div class=" border border-gray-300 rounded-[10px] mx-auto flex flex-col justify-between px-3 py-7 gap-7 opacity-35">
-  </div>
-<div class="flex sm:justify-between font-bold  sm:items-center max-sm:gap-1.5 max-sm:flex-co;">
-<p class="text-[22px]">Mahogany Special Edition</p>
-<p class="text-[14px] text-[hsl(176,50%,47%)]">Pledge $200 or more</p>
+<div class="flex items-center gap-0.5 max-sm:hidden"><p class="text-[28px]">0</p><p class="text-gray-500 text-[14px]">left</p></div>
 </div>
 <p class="text-[14px] text-gray-500">You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included.</p>
-<div class="flex sm:justify-between font-bold  sm:items-center max-sm:gap-1.5 max-sm:flex-col">
-<div class="flex items-center gap-0.5"><p class="text-[22px] max-sm:text-[28px]">0</p><p class="text-gray-500 text-[14px]">left</p></div>
-<p class="h-10 w-35 rounded-3xl bg-[hsl(176,50%,47%)] text-white flex justify-center items-center max-sm:w-40 max-sm:h-12.5 max-sm:text-[18px]">Out of Stock</p>
+<div class="flex items-center gap-0.5 sm:hidden"><p class="text-[22px] max-sm:text-[28px]">0</p><p class="text-gray-500 text-[14px]">left</p></div>
 </div>
 </div>
 </div>
-<script>
-  const discoverButton = document.getElementById("discoverName");
-  const discoverPopup = document.getElementById("popUp");
-  const closePopup = document.getElementById("closePopup")
-
-    closePopup.addEventListener("click", () => {
-    discoverPopup.classList.add("hidden");
-  });
-
-  discoverButton.addEventListener("click", (e) => {
-    e.stopPropagation();
-
-    discoverPopup.classList.remove("hidden");
-  });
-
-  window.addEventListener("click", (e) => {
-      discoverPopup.classList.add("hidden");
-  });
-</script>
+</div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
