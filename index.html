@@ -14,7 +14,7 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 />
 </head>
-<body class="font-['Commissioner'] pb-20">
+<body class="font-['Commissioner'] pb-20" id="body">
   <div id="navbar" class="h-100 w-full bg-no-repeat bg-center max-sm:hidden pb-32" style="background-image: url('images/image-hero-desktop.jpg');">
 <div class="flex justify-between items-center pt-5 px-[11%] text-white">
  <a href="https://crowdfunding-product-page-main-rho.vercel.app/"> <img src="images/logo.svg" alt="Logo" class="hover:scale-95 cursor-pointer"></a>
@@ -47,10 +47,14 @@
 </div>
 <div class="flex justify-center gap-2 pt-7.5">
   <div class="rounded-4xl h-13 w-[48.5%] max-sm:w-45 max-w-50 flex justify-center items-center bg-[hsl(176,50%,47%)] text-white text-[14px] hover:bg-[hsl(176,45%,43%)] hover:text-[#f4f4f4] transition-all ease-in-out duration-500 cursor-pointer" id="backThisProjectButton">Back this project</div>
-  <div class="flex items-center rounded-4xl h-13 w-[48.5%] max-w-50 max-sm:w-13  bg-[#e9e9e9] cursor-pointer group hover:bg-[#f0eeee] transition-all duration-500 ease-in-out" id="bookmarkBackground"><div class="h-13 w-13 bg-gray-600 group-hover:bg-gray-500 rounded-[50%] flex justify-center items-center" id="bookmarkCircle">
-    <i class="fa-solid fa-bookmark text-gray-300 group-hover:text-gray-200" id="bookmarkIcon"></i>
-  </div><p class="max-sm:hidden mx-auto text-[14px] text-gray-500 group-hover:text-gray-600 font-semibold" id="bookmark">Bookmark</p>
-<p class="max-sm:hidden mx-auto text-[14px] text-[hsl(176,45%,43%)] font-bold hidden" id="bookmarked">Bookmarked</p></div>
+  <div class="flex items-center rounded-4xl h-13 w-[48.5%] max-w-50 max-sm:w-13  bg-[#e9e9e9] cursor-pointer group hover:bg-[#f0eeee] transition-all duration-500 ease-in-out" id="bookmark"><div class="h-13 w-13 bg-gray-600 group-hover:bg-gray-500 rounded-[50%] flex justify-center items-center">
+    <i class="fa-solid fa-bookmark text-gray-300 group-hover:text-gray-200"></i>
+  </div>
+<p class="max-sm:hidden mx-auto text-[14px] text-gray-500 group-hover:text-gray-600 font-semibold" id="bookmark">Bookmark</p></div>
+<div class="flex items-center rounded-4xl h-13 w-[48.5%] max-w-50 max-sm:w-13  bg-[hsl(174,64%,94%)] group cursor-pointer transition-all duration-500 ease-in-out hidden" id="bookmarked"><div class="h-13 w-13 bg-[hsl(176,50%,47%)] group-hover:bg-[hsl(176,45%,43%)] rounded-[50%] flex justify-center items-center">
+    <i class="fa-solid fa-bookmark text-white"></i>
+  </div>
+<p class="max-sm:hidden mx-auto text-[14px] text-[hsl(176,45%,43%)] font-bold">Bookmarked</p></div>
 </div>
 </div>
 </div>
@@ -114,7 +118,7 @@
 </div>
 </div>
 
-<div class="px-5 min-[943px]:px-0 min-[943px]:max-w-177.5 fixed top-20 overflow-y-auto overflow-hidden max-h-[80vh] min-[943px]:left-1/2 min-[943px]:-translate-x-1/2 hidden" id="backThisProject">
+<div class="px-5 min-[943px]:px-0 min-[943px]:max-w-177.5 fixed z-69 top-20 overflow-y-auto overflow-hidden max-h-[80vh] min-[943px]:left-1/2 min-[943px]:-translate-x-1/2 hidden" id="backThisProject">
 <div class="pt-5 px-3.5 mask-x-to-yellow-200 bg-white rounded-[10px] ">
 <div class="flex justify-between px-4">
 <div class="flex flex-col gap-2 max-sm:gap-1">
@@ -210,6 +214,10 @@
   <p class="w-22 h-11 flex items-center justify-center text-white bg-[hsl(176,50%,47%)] rounded-3xl cursor-pointer hover:bg-[hsl(176,45%,43%)] hover:text-[#f4f4f4] transition-all ease-in-out duration-500" id="closeThankYouPopUp">Got it</p>
 </div>
 </div>
+<div
+  id="overlay"
+  class="fixed inset-0 bg-[rgba(0,0,0,0.1)] backdrop-blur-sm z-40 hidden"
+></div>
 <script src="script.js"></script>
 </body>
 </html>

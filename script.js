@@ -48,17 +48,23 @@ const discoverButton = document.getElementById("discoverName");
   });
 
 const backThisProjectButton = document.getElementById("backThisProjectButton");
-  const backThisProject = document.getElementById("backThisProject");
-  const closeThisProject = document.getElementById("closeThisProject")
+const overlayEffect = document.getElementById("overlay");
+const body = document.getElementById("body");
+const backThisProject = document.getElementById("backThisProject");
+const closeThisProject = document.getElementById("closeThisProject")
 
-    closeThisProject.addEventListener("click", () => {
-    backThisProject.classList.add("hidden");
-  });
-
-  backThisProjectButton.addEventListener("click", (e) => {
+backThisProjectButton.addEventListener("click", (e) => {
     e.stopPropagation();
 
     backThisProject.classList.remove("hidden");
+    overlayEffect.classList.remove("hidden");
+    body.classList.add("fixed");
+  });
+
+closeThisProject.addEventListener("click", () => {
+    backThisProject.classList.add("hidden");
+    overlayEffect.classList.add("hidden");
+    body.classList.remove("fixed");
   });
 
   const radioBambooStandsRadio = document.getElementById("radioBambooStands"); 
@@ -96,6 +102,8 @@ const thankYouPopUp = document.getElementById("thankYouPopUp");
 const closeThankYouPopUp = document.getElementById("closeThankYouPopUp"); 
 closeThankYouPopUp.addEventListener("click", () => {
     thankYouPopUp.classList.add("hidden");
+    overlayEffect.classList.add("hidden");
+    body.classList.remove("fixed");
   });
   pledgeWithNowRewardContinueButton.addEventListener("click", (e) => {
     e.stopPropagation();
@@ -113,43 +121,17 @@ closeThankYouPopUp.addEventListener("click", () => {
     thankYouPopUp.classList.remove("hidden");
   });
 
-  const bookmarkBackgroundButton = document.getElementById("bookmarkBackground");
-const bookmarkIcon = document.getElementById("bookmarkIcon");
-const bookmarkCircle = document.getElementById("bookmarkCircle");
 const bookmark = document.getElementById("bookmark");
 const bookmarked = document.getElementById("bookmarked");
 
-let isBookmarked = false;
-
-bookmarkBackgroundButton.addEventListener("click", () => {
-  isBookmarked = !isBookmarked;
-
-  if (isBookmarked) {
-    bookmarkIcon.classList.remove("text-gray-300", "group-hover:text-gray-200");
-    bookmarkIcon.classList.add("text-white");
-
-    bookmarkCircle.classList.remove("bg-gray-600", "group-hover:bg-gray-500");
-    bookmarkCircle.classList.add("bg-[hsl(176,50%,47%)]", "group-hover:bg-[hsl(176,45%,43%)]");
-
-    bookmarkBackgroundButton.classList.remove("bg-[#e9e9e9]", "hover:bg-[#f0eeee]");
-    bookmarkBackgroundButton.classList.add("bg-[hsl(174,64%,94%)]");
-
-    bookmark.classList.add("hidden");
-    bookmarked.classList.remove("hidden");
-  } 
-  else {
-    bookmarkIcon.classList.add("text-gray-300", "group-hover:text-gray-200");
-    bookmarkIcon.classList.remove("text-white");
-
-    bookmarkCircle.classList.remove("bg-[hsl(176,50%,47%)]", "group-hover:bg-[hsl(176,45%,43%)]");
-    bookmarkCircle.classList.add("bg-gray-600", "group-hover:bg-gray-500");
+bookmark.addEventListener("click", (e) => { 
+  bookmarked.classList.remove("hidden");
+  bookmark.classList.add("hidden");
+});
  
-    bookmarkBackgroundButton.classList.add("bg-[#e9e9e9]", "hover:bg-[#f0eeee]");
-    bookmarkBackgroundButton.classList.remove("bg-[hsl(174,64%,94%)]");
-
-    bookmark.classList.remove("hidden");
-    bookmarked.classList.add("hidden");
-  }
+bookmarked.addEventListener("click", (e) => { 
+  bookmark.classList.remove("hidden");
+  bookmarked.classList.add("hidden");
 });
 
 const bambooSelectRewardButton = document.getElementById("bambooSelectReward");
