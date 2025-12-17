@@ -129,7 +129,7 @@ bookmarkBackgroundButton.addEventListener("click", () => {
     bookmarkIcon.classList.add("text-white");
 
     bookmarkCircle.classList.remove("bg-gray-600", "group-hover:bg-gray-500");
-    bookmarkCircle.classList.add("bg-[hsl(176,50%,47%)]", "group-hover:bg-[hsl(176,53%,51%)]");
+    bookmarkCircle.classList.add("bg-[hsl(176,50%,47%)]", "group-hover:bg-[hsl(176,45%,43%)]");
 
     bookmarkBackgroundButton.classList.remove("bg-[#e9e9e9]", "hover:bg-[#f0eeee]");
     bookmarkBackgroundButton.classList.add("bg-[hsl(174,64%,94%)]");
@@ -141,7 +141,7 @@ bookmarkBackgroundButton.addEventListener("click", () => {
     bookmarkIcon.classList.add("text-gray-300", "group-hover:text-gray-200");
     bookmarkIcon.classList.remove("text-white");
 
-    bookmarkCircle.classList.remove("bg-[hsl(176,50%,47%)]", "group-hover:bg-[hsl(176,53%,51%)]");
+    bookmarkCircle.classList.remove("bg-[hsl(176,50%,47%)]", "group-hover:bg-[hsl(176,45%,43%)]");
     bookmarkCircle.classList.add("bg-gray-600", "group-hover:bg-gray-500");
  
     bookmarkBackgroundButton.classList.add("bg-[#e9e9e9]", "hover:bg-[#f0eeee]");
