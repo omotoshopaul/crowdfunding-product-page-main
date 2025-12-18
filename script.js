@@ -140,9 +140,13 @@ const blackEditionSelectRewardButton = document.getElementById("blackEditionSele
     e.stopPropagation();
 
     backThisProject.classList.remove("hidden");
+    overlayEffect.classList.remove("hidden");
+    body.classList.add("fixed");
   });
   blackEditionSelectRewardButton.addEventListener("click", (e) => {
     e.stopPropagation();
 
     backThisProject.classList.remove("hidden");
+    overlayEffect.classList.remove("hidden");
+    body.classList.add("fixed");
   });
